@@ -11,17 +11,25 @@
 //The post content is displayed conditionally based on the isExpanded state.
 //The button text is also displayed conditionally based on the isExpanded state.
 //The expandButton function is passed as a prop to the button component to handle the click event.
+
 'use client'
 import React, {useState} from "react";
 // console.log("data", { userName, content, title, date, fileUpload });
-export default function BlogCard({ post }) {
+export default function BlogCard({ post, onDelete }) {
     const [isExpanded, setIsExpanded] = useState(false);
 
+    //function to expand the content of the post
     function expandButton(){
         console.log("Expand button clicked")
         //sets the state of isExpanded to the opposite of what it currently is
-        setIsExpanded(!isExpanded);   
+        setIsExpanded(!isExpanded);
+    
     }
+    function deleteButton() {
+        console.log("Delete button clicked");
+        onDelete();
+      }
+
     console.log("BlogCard post:", post);
   // Check if the post object is valid
   if (!post || Object.keys(post).length === 0) {
@@ -65,12 +73,22 @@ export default function BlogCard({ post }) {
     </div>
 
     <div className="sm:flex sm:items-end sm:justify-end">
+     
+
       <button
-        href="#"
+      
         onClick={expandButton}
         className=" block bg-yellow-300 px-5 py-3 text-center text-xs font-bold uppercase text-gray-900 transition hover:bg-yellow-400"
       >
-       {isExpanded ? 'Read Less' : 'Read More'}
+       {isExpanded ? 'Read Less' : 'Expand'}
+      </button>
+
+      <button
+     
+        onClick={deleteButton}
+        className="block bg-red-600 px-5 py-3 text-center text-xs font-bold uppercase text-white transition hover:bg-red-700"
+      >
+        Delete
       </button>
     </div>
   </div>

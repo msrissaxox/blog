@@ -3,10 +3,15 @@
 import React, { useState } from "react"
 import NewPost from "./New-Post";
 import BlogCard from "./BlogCard";
+import Modal from "./Modal";
 
 export default function BlogForm(){
     const [showNewPost, setShowNewPost] = useState(false);
     const [cancelPost, setCancelPost] = useState(false);
+    const [showModal, setShowModal] = useState(false);
+    const [postToDelete, setPostToDelete] = useState(null);  
+
+    //posts array is initialized with a default post object.
     const [posts, setPosts] = useState([
 {
     userName: "Default User",
@@ -32,6 +37,7 @@ export default function BlogForm(){
     setCancelPost(true);
     setShowNewPost(false);
     }
+
 // this function takes a post object as an argument and adds it to the posts array using the setPosts function.
 // It also sets the state of showNewPost to false to hide the NewPost form component.
 
@@ -40,6 +46,19 @@ export default function BlogForm(){
         setShowNewPost(false);
     };
 
+    //handleDeletePost function is called when the delete button is clicked.
+    //It sets the state of postToDelete to the index of the post to be deleted and show the modal.
+
+    const handleDeletePost = (index) => {
+        setPostToDelete(index);
+        setShowModal(true);
+      };
+    
+      const confirmDeletePost = () => {
+        setPosts(posts.filter((_, i) => i !== postToDelete));
+        setShowModal(false);
+        setPostToDelete(null);
+      };
 
     return (
         <>
@@ -79,9 +98,10 @@ It is given the value of the handleCancelPost function */
     <div>
         {posts.map((post, index) => (
             console.log("post", post),
-             <BlogCard key={index} post={post} />
+             <BlogCard key={index} post={post} onDelete={() => handleDeletePost(index)}  />
         ))}
       </div>
+      <Modal show={showModal} onClose={() => setShowModal(false)} onConfirm={confirmDeletePost} />
  </>
     );
 }

@@ -80,12 +80,9 @@ export default function NewPost({onCancel, onAddPost}) {
                   onChange={(e) => setTitle(e.target.value)}
                   rows={1}
                   className="block rounded-md w-full bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-                  
-                 
                 />
               </div>
             </div>
-
 
             {/* Date section */}
 
@@ -120,7 +117,6 @@ export default function NewPost({onCancel, onAddPost}) {
                   maxLength={2500}
                   className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                   placeholder={'Enter Blog Post Here...'}
-              
                 />
               </div>
             </div>
@@ -153,7 +149,6 @@ export default function NewPost({onCancel, onAddPost}) {
             </div>
           </div>
         </div>
-
       </div> 
       {/* Submit button */}
 
