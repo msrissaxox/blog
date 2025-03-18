@@ -1,6 +1,8 @@
 //Blog card component is a functional component that displays a single blog post.
 //It takes a post object as a prop and displays the post title, content, date, and cover photo.
 //It also has a button to expand the content of the post.
+//post and onDelete are passed as props to the BlogCard component from the BlogForm component.
+//The post object is destructured in the BlogCard component to access the properties.
 //The post object has the following properties: userName, content, title, date, and fileUpload.
 //The post object is passed as a prop to the BlogCard component.
 //The post object is destructured in the BlogCard component to access the properties.
@@ -11,11 +13,16 @@
 //The post content is displayed conditionally based on the isExpanded state.
 //The button text is also displayed conditionally based on the isExpanded state.
 //The expandButton function is passed as a prop to the button component to handle the click event.
+//The onDelete function is called when the delete button is clicked.
+//The onDelete function calls the onDelete prop function with the post object as an argument.
+//The onDelete function is passed as a prop to the button component to handle the click event.
+//post is from the parent component called BlogForm
+//onDelete is from the parent component called BlogForm
 
 'use client'
 import React, {useState} from "react";
 // console.log("data", { userName, content, title, date, fileUpload });
-export default function BlogCard({ post, onDelete }) {
+export default function BlogCard({ post, onDelete, onEdit }) {
     const [isExpanded, setIsExpanded] = useState(false);
 
     //function to expand the content of the post
@@ -23,11 +30,16 @@ export default function BlogCard({ post, onDelete }) {
         console.log("Expand button clicked")
         //sets the state of isExpanded to the opposite of what it currently is
         setIsExpanded(!isExpanded);
-    
     }
+
     function deleteButton() {
         console.log("Delete button clicked");
         onDelete();
+      }
+
+    function editButton() {
+        console.log("Edit button clicked");
+        onEdit();
       }
 
     console.log("BlogCard post:", post);
@@ -37,7 +49,7 @@ export default function BlogCard({ post, onDelete }) {
   }
 
     return (
-        <article className="flex bg-white transition hover:shadow-xl mb-3">
+        <article className="flex bg-white transition hover:shadow-xl mb-3 px-4 py-6 sm:px-6 sm:py-8">
             <div className="rotate-180 p-2 [writing-mode:_vertical-lr]">
                 <time
                     dateTime={post.date || ''}
@@ -75,10 +87,10 @@ export default function BlogCard({ post, onDelete }) {
     <div className="sm:flex sm:items-end sm:justify-end">
      
 
-      <button
+      <button 
       
         onClick={expandButton}
-        className=" block bg-yellow-300 px-5 py-3 text-center text-xs font-bold uppercase text-gray-900 transition hover:bg-yellow-400"
+        className=" block bg-lime-300 px-6 py-3 mx-1.5 my-1.5 text-center text-xs font-bold uppercase text-lime-800 hover:bg-lime-400 transition  rounded-sm"
       >
        {isExpanded ? 'Read Less' : 'Expand'}
       </button>
@@ -86,10 +98,17 @@ export default function BlogCard({ post, onDelete }) {
       <button
      
         onClick={deleteButton}
-        className="block bg-red-600 px-5 py-3 text-center text-xs font-bold uppercase text-white transition hover:bg-red-700"
+        className="block bg-red-600 px-6 py-3 mx-1.5 my-1.5 text-center text-xs font-bold uppercase text-white transition hover:bg-red-700 rounded-sm"
       >
         Delete
       </button>
+
+      <button
+     onClick={editButton}   
+     className="block bg-yellow-300 px-6 py-3 mx-1.5 my-1.5 text-center text-xs font-bold uppercase text-lime-800 transition hover:bg-yellow-500 rounded-sm"
+   >
+     Edit
+   </button>
     </div>
   </div>
 </article>

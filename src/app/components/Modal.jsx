@@ -1,6 +1,14 @@
 import React from "react";
 
     //trying to make the pop up come up when the delete button is clicked
+
+    //The Modal component takes three props: show, onClose, and onConfirm.
+    //The show prop is a boolean value that determines whether the modal should be displayed.
+    //The onClose prop is a function that is called when the cancel button is clicked.
+    //show component is from the parent component called BlogForm
+    //onClose component is from the parent component called BlogForm
+    //onConfirm component is from the parent component called BlogForm
+    
 export default function Modal({show, onClose, onConfirm}) {
     if(!show) {
         return null;
@@ -10,7 +18,7 @@ export default function Modal({show, onClose, onConfirm}) {
         <div className="fixed inset-0 bg-opacity-50 backdrop-blur-sm overflow-y-auto h-full w-full">
         <div className="relative top-40 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
           <div className="mt-3 text-center">
-            <h3 className="text-lg leading-6 font-medium text-gray-900">Confirm Delete</h3>
+            <h3 className="text-lg leading-6 font-medium text-lime-800">Confirm Delete</h3>
             <div className="mt-2 px-7 py-3">
               <p className="text-sm text-gray-500">Are you sure you want to delete this post?</p>
             </div>

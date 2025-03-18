@@ -1,29 +1,41 @@
 //New post component is a functional component that displays a form to create a new blog post.
-//It takes two props onCancel and onAddPost.
+//It takes two props onCancel and onAddPost and these are passed as props to the NewPost component from the BlogForm component.
 //onCancel is a function that is called when the cancel button is clicked.
 //onAddPost is a function that is called when the submit button is clicked.
 //The form has fields for the username, blog title, date, content, and cover photo.
 //The form also has a cancel button and a submit button.
+
+
 'use client'
 
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 import { ChevronDownIcon } from '@heroicons/react/16/solid'
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
 //Passing onCancel as a prop to NewPost component to handle the cancel button click event.
-export default function NewPost({onCancel, onAddPost}) {
-  const [userName, setUserName] = useState('');
-  const [content, setContent] = useState('');
-  const [title, setTitle] = useState('');
-  const [date, setDate] = useState('');
-  const [fileUpload, setFileUpload] = useState('');
+export default function NewPost({onCancel, onAddPost, post}) {
+  const [userName, setUserName] = useState(post?.userName || '');
+  const [content, setContent] = useState(post?.content || '');
+  const [title, setTitle] = useState(post?.title || '');
+  const [date, setDate] = useState(post?.date || ''); 
+  const [fileUpload, setFileUpload] = useState(post?.fileUpload || '');
+
+  useEffect(() => {
+    if (post) {
+      setUserName(post.userName);
+      setContent(post.content);
+      setTitle(post.title);
+      setDate(post.date);
+      setFileUpload(post.fileUpload);
+    }
+  }, [post]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const newPost = { userName, content, title, date, fileUpload };
-    console.log("Post added:", newPost)
+    console.log("Post added/updates:", newPost)
     onAddPost(newPost);
-  };
+  }; 
 
 
   const handleFileChange = (e) => {
@@ -41,7 +53,7 @@ export default function NewPost({onCancel, onAddPost}) {
     <form className='content-center max-w-3xl mx-auto mt-12 space-y-12' onSubmit={handleSubmit}>
       <div className="space-y-12 ">
         <div className="border-b border-gray-900/10 pb-12">
-          <h2 className="text-base/7 font-semibold text-gray-900">Create a New Blog Post</h2>
+          <h2 className="text-base/7 font-semibold text-lime-800 uppercase">{post ? 'Edit Blog Post' : 'Create a New Blog Post'}</h2>
 
           <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
             {/* Username section */}
@@ -156,14 +168,14 @@ export default function NewPost({onCancel, onAddPost}) {
         <button 
         onClick={onCancel}
         type="button" 
-        className="text-sm/6 font-semibold text-gray-900">
+        className="text-sm/6 font-semibold text-lime-800 uppercase">
           Cancel
         </button>
         <button
+          className="inline-block rounded-sm bg-indigo-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:ring-3 focus:outline-hidden"
           type="submit"
-          className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
         >
-          Submit
+          {post ? 'Update Post' : 'Add Post'}
         </button>
       </div>
     </form>
