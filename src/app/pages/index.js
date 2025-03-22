@@ -5,12 +5,11 @@ import BlogCard from "../components/BlogCard";
 import Footer from "../components/Footer";
 
 export default function Index() {
-
-    return (
-        <div>
-            <BlogForm/>
-            <BlogCard/>
-            <Footer />
-        </div>
-    )
-};
+  return (
+    <div>
+      <BlogForm />
+      <BlogCard />
+      <Footer />
+    </div>
+  );
+}

@@ -5,20 +5,19 @@
 //The form has fields for the username, blog title, date, content, and cover photo.
 //The form also has a cancel button and a submit button.
 
+"use client";
 
-'use client'
-
-import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
-import { ChevronDownIcon } from '@heroicons/react/16/solid'
-import React, {useEffect, useState} from 'react';
+import { PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
+import { ChevronDownIcon } from "@heroicons/react/16/solid";
+import React, { useEffect, useState } from "react";
 
 //Passing onCancel as a prop to NewPost component to handle the cancel button click event.
-export default function NewPost({onCancel, onAddPost, post}) {
-  const [userName, setUserName] = useState(post?.userName || '');
-  const [content, setContent] = useState(post?.content || '');
-  const [title, setTitle] = useState(post?.title || '');
-  const [date, setDate] = useState(post?.date || ''); 
-  const [fileUpload, setFileUpload] = useState(post?.fileUpload || '');
+export default function NewPost({ onCancel, onAddPost, post }) {
+  const [userName, setUserName] = useState(post?.userName || "");
+  const [content, setContent] = useState(post?.content || "");
+  const [title, setTitle] = useState(post?.title || "");
+  const [date, setDate] = useState(post?.date || "");
+  const [fileUpload, setFileUpload] = useState(post?.fileUpload || "");
 
   useEffect(() => {
     if (post) {
@@ -33,10 +32,9 @@ export default function NewPost({onCancel, onAddPost, post}) {
   const handleSubmit = (e) => {
     e.preventDefault();
     const newPost = { userName, content, title, date, fileUpload };
-    console.log("Post added/updates:", newPost)
+    console.log("Post added/updates:", newPost);
     onAddPost(newPost);
-  }; 
-
+  };
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -50,21 +48,29 @@ export default function NewPost({onCancel, onAddPost, post}) {
   };
 
   return (
-    <form className='content-center max-w-3xl mx-auto mt-12 space-y-12' onSubmit={handleSubmit}>
+    <form
+      className="content-center max-w-3xl mx-auto mt-12 space-y-12"
+      onSubmit={handleSubmit}
+    >
       <div className="space-y-12 ">
         <div className="border-b border-gray-900/10 pb-12">
-          <h2 className="text-base/7 font-semibold text-lime-800 uppercase">{post ? 'Edit Blog Post' : 'Create a New Blog Post'}</h2>
+          <h2 className="text-base/7 font-semibold text-lime-800 uppercase">
+            {post ? "Edit Blog Post" : "Create a New Blog Post"}
+          </h2>
 
           <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
             {/* Username section */}
             <div className="sm:col-span-4">
-              <label htmlFor="username" className="block text-sm/6 font-medium text-gray-900">
+              <label
+                htmlFor="username"
+                className="block text-sm/6 font-medium text-gray-900"
+              >
                 Username
               </label>
               <div className="mt-2">
                 <div className="flex items-center w-full rounded-md bg-white pl-3 outline-1 -outline-offset-1 outline-gray-300 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
                   <div className="shrink-0 text-base text-gray-500 select-none sm:text-sm/6"></div>
-                  <input 
+                  <input
                     id="username"
                     name="username"
                     type="text"
@@ -78,10 +84,12 @@ export default function NewPost({onCancel, onAddPost, post}) {
               </div>
             </div>
 
-
             {/* Blog Title section */}
             <div className="sm:col-span-4">
-              <label htmlFor="about" className="block text-sm/6 font-medium text-gray-900">
+              <label
+                htmlFor="about"
+                className="block text-sm/6 font-medium text-gray-900"
+              >
                 Blog Title
               </label>
               <div className="mt-2 w-full">
@@ -99,12 +107,15 @@ export default function NewPost({onCancel, onAddPost, post}) {
             {/* Date section */}
 
             <div className="sm:col-span-4">
-              <label htmlFor="date" className="block text-sm/6 font-medium text-gray-900">
-               Date
+              <label
+                htmlFor="date"
+                className="block text-sm/6 font-medium text-gray-900"
+              >
+                Date
               </label>
               <div className="mt-2">
                 <input
-                type="date"
+                  type="date"
                   id="date"
                   name="date"
                   value={date}
@@ -116,9 +127,12 @@ export default function NewPost({onCancel, onAddPost, post}) {
 
             {/* Blog Post section */}
             <div className="col-span-full">
-              <label htmlFor="about" className="block w-full text-sm/6 font-medium text-gray-900">
-            Content
-          </label>
+              <label
+                htmlFor="about"
+                className="block w-full text-sm/6 font-medium text-gray-900"
+              >
+                Content
+              </label>
               <div className="mt-2">
                 <textarea
                   id="content"
@@ -128,56 +142,68 @@ export default function NewPost({onCancel, onAddPost, post}) {
                   rows={6}
                   maxLength={2500}
                   className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-                  placeholder={'Enter Blog Post Here...'}
+                  placeholder={"Enter Blog Post Here..."}
                 />
               </div>
             </div>
-         
+
             {/* Cover photo section */}
 
             <div className="col-span-full">
-              <label htmlFor="cover-photo" className="block text-sm/6 font-medium text-gray-900">
+              <label
+                htmlFor="cover-photo"
+                className="block text-sm/6 font-medium text-gray-900"
+              >
                 Blog photo
               </label>
               <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
                 <div className="text-center">
-                  <PhotoIcon aria-hidden="true" className="mx-auto size-12 text-gray-300" />
+                  <PhotoIcon
+                    aria-hidden="true"
+                    className="mx-auto size-12 text-gray-300"
+                  />
                   <div className="mt-4 flex text-sm/6 text-gray-600">
                     <label
                       htmlFor="file-upload"
                       className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 focus-within:outline-hidden hover:text-indigo-500"
                     >
                       <span>Upload a file</span>
-                      <input id="file-upload"
-                      onChange={handleFileChange}
-                      name="file-upload" type="file" className="sr-only" />
-                      
+                      <input
+                        id="file-upload"
+                        onChange={handleFileChange}
+                        name="file-upload"
+                        type="file"
+                        className="sr-only"
+                      />
                     </label>
                     <p className="pl-1">or drag and drop</p>
                   </div>
-                  <p className="text-xs/5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
+                  <p className="text-xs/5 text-gray-600">
+                    PNG, JPG, GIF up to 10MB
+                  </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div> 
+      </div>
       {/* Submit button */}
 
       <div className="mt-6 flex items-center justify-end gap-x-6">
-        <button 
-        onClick={onCancel}
-        type="button" 
-        className="text-sm/6 font-semibold text-lime-800 uppercase">
+        <button
+          onClick={onCancel}
+          type="button"
+          className="text-sm/6 font-semibold text-lime-800 uppercase"
+        >
           Cancel
         </button>
         <button
           className="inline-block rounded-sm bg-indigo-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:ring-3 focus:outline-hidden"
           type="submit"
         >
-          {post ? 'Update Post' : 'Add Post'}
+          {post ? "Update Post" : "Add Post"}
         </button>
       </div>
     </form>
-  )
+  );
 }
