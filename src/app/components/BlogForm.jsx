@@ -119,7 +119,7 @@ export default function BlogForm() {
             </div>
           </div>
         </div>
-        <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700"></hr>
+        <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-200"></hr>
       </header>
       {/* onCancel is passed as a prop to NewPost component to handle the cancel button click event.
 It is given the value of the handleCancelPost function */
