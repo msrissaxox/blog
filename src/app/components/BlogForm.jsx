@@ -72,6 +72,10 @@ export default function BlogForm() {
   const handleEditPost = (index) => {
     setPostToEdit(index);
     setShowNewPost(true);
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // Smooth scrolling effect
+    });
   };
 //handleUpdatePost function takes an updated post object as an argument and updates the post at the index of postToEdit in the posts array.
 //It sets the state of postToEdit to null and showNewPost to false to hide the NewPost form component.
