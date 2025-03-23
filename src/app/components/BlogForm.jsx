@@ -2,11 +2,11 @@
 //The BlogForm component manages the state of the blog posts and handles the creation, deletion, and editing of posts.
 //This component contains the logic for showing and hiding the NewPost form component, as well as the Modal component for confirming post deletion.
 
-"use client";
-import React, { useState } from "react";
-import NewPost from "./New-Post";
-import BlogCard from "./BlogCard";
-import Modal from "./Modal";
+'use client';
+import React, { useState } from 'react';
+import NewPost from './New-Post';
+import BlogCard from './BlogCard';
+import Modal from './Modal';
 
 export default function BlogForm() {
   //showNewPost is initialized with a false value because the NewPost form is not shown initially.
@@ -22,27 +22,26 @@ export default function BlogForm() {
   //posts array is initialized with a default post object.
   const [posts, setPosts] = useState([
     {
-      userName: "Default User",
-      title: "Welcome to BackBook",
+      userName: 'Default User',
+      title: 'Welcome to BackBook',
       content:
-        "This is the first post on BackBook. Create your own post to get started!",
-      date: "2025-03-12", // Today's date in YYYY-MM-DD format
-      fileUpload: "javascript.jpg", // Path to a default image
+        'This is the first post on BackBook. Create your own post to get started!',
+      date: '2025-03-12', // Today's date in YYYY-MM-DD format
+      fileUpload: 'javascript.jpg', // Path to a default image
     },
   ]);
 
   //handleCreatePost function is called when the create new post button is clicked.
-  //It sets the state of showNewPost to true to show the form and cancelPost to false.
+  //It sets the state of showNewPost to true to show the form.
   const handleCreatePost = () => {
-    console.log("Create Post button clicked");
+    console.log('Create Post button clicked');
     setShowNewPost(true);
-    setCancelPost(false);
   };
 
   //handleCancelPost function is called when the cancel button is clicked.
   //It sets the state of cancelPost to true and showNewPost to false.
   const handleCancelPost = () => {
-    console.log("Cancel Post button clicked");
+    console.log('Cancel Post button clicked');
     setCancelPost(true);
     setShowNewPost(false);
   };
@@ -73,17 +72,21 @@ export default function BlogForm() {
     setPostToEdit(index);
     setShowNewPost(true);
   };
-
+//handleUpdatePost function takes an updated post object as an argument and updates the post at the index of postToEdit in the posts array.
+//It sets the state of postToEdit to null and showNewPost to false to hide the NewPost form component.
   const handleUpdatePost = (updatedPost) => {
     setPosts(
-      posts.map((post, index) => (index === postToEdit ? updatedPost : post)),
+      posts.map((post, index) => (index === postToEdit ? updatedPost : post))
     );
     setPostToEdit(null);
     setShowNewPost(false);
   };
 
+
+  
   return (
     <>
+      {cancelPost}
       <header className="bg-white">
         <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
           <div className="flex flex-col items-start gap-4 md:flex-row md:items-center md:justify-between">
@@ -112,18 +115,24 @@ export default function BlogForm() {
       </header>
       {/* onCancel is passed as a prop to NewPost component to handle the cancel button click event.
 It is given the value of the handleCancelPost function */
-      /* This line conditionally renders a NewPost component when showNewPost is true
-(using the logical AND && operator for conditional rendering). The component is passed two props */}
-
+// onAddPost is passed as a prop to NewPost component to handle the add post event.
+// It is given the value of the handleAddPost function.
+// post is passed as a prop to NewPost component to handle the post object.
+// It is given the value of the post object at the index of postToEdit.
+// If postToEdit is not null, the post object at that index is passed to the NewPost component for editing.
+// If postToEdit is null, the NewPost component is used to create a new post.
+      }
+  
       {showNewPost && (
         <NewPost
           onCancel={handleCancelPost}
+          //If postToEdit is not null (meaning a post is being edited), it passes handleUpdatePost
           onAddPost={postToEdit !== null ? handleUpdatePost : handleAddPost}
+          //If postToEdit is not null, it passes the post object at the index of postToEdit
           post={postToEdit !== null ? posts[postToEdit] : null}
         />
       )}
-      {/* When cancelPost is true, the blog post does not appear
-    {cancelPost} */}
+      
       <div>
         {posts.map((post, index) => (
           <BlogCard

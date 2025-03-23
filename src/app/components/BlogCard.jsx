@@ -49,8 +49,10 @@ export default function BlogCard({ post, onDelete, onEdit }) {
   }
 
   return (
-    <article className="flex bg-white transition hover:shadow-xl mb-3 px-4 py-6 sm:px-6 sm:py-8">
-      <div className="rotate-180 p-2 [writing-mode:_vertical-lr]">
+<article className="flex flex-col sm:flex-row bg-white transition hover:shadow-xl mb-3 px-4 py-6 sm:px-6 sm:py-8">
+{/* <div className="rotate-180 p-2 [writing-mode:_vertical-lr]"> */}
+<div className="p-2 sm:rotate-180 sm:[writing-mode:_vertical-lr]">
+
         <time
           dateTime={post.date || ""}
           className="flex items-center justify-between gap-4 text-xs font-bold uppercase text-gray-900"
@@ -63,11 +65,14 @@ export default function BlogCard({ post, onDelete, onEdit }) {
                 })
               : "N/A"}
           </span>
-          <span className="w-px flex-1 bg-gray-900/10"></span>
+          {/* Responsive Divider */}
+          {/* <span className="w-px flex-1 bg-gray-900/10"></span> */}
+          <span className="bg-gray-900/10 sm:w-px sm:flex-1 sm:h-auto w-full h-px"></span>
+
           <span>{post.date ? new Date(post.date).getFullYear() : "N/A"}</span>
         </time>
       </div>
-      <div className="hidden sm:block sm:basis-56">
+      <div className="sm:block sm:basis-56">
         <img
           alt="uploaded file"
           src={post.fileUpload || "javascript.jpg"} //FALLBACK HERE

@@ -1,14 +1,16 @@
 //New post component is a functional component that displays a form to create a new blog post.
-//It takes two props onCancel and onAddPost and these are passed as props to the NewPost component from the BlogForm component.
+//It takes three props: onCancel, onAddPost and post and these are passed as props to the NewPost component from the BlogForm component.
 //onCancel is a function that is called when the cancel button is clicked.
 //onAddPost is a function that is called when the submit button is clicked.
 //The form has fields for the username, blog title, date, content, and cover photo.
 //The form also has a cancel button and a submit button.
+//post is from the parent component called BlogForm and is used to populate the form fields when editing a post.
+//The form fields are populated with the post object properties if the post object is passed as a prop.
+//The form fields are updated when the user types in the input fields.
 
 "use client";
 
 import { PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
-import { ChevronDownIcon } from "@heroicons/react/16/solid";
 import React, { useEffect, useState } from "react";
 
 //Passing onCancel as a prop to NewPost component to handle the cancel button click event.
