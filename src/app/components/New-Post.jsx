@@ -8,18 +8,18 @@
 //The form fields are populated with the post object properties if the post object is passed as a prop.
 //The form fields are updated when the user types in the input fields.
 
-"use client";
+'use client';
 
-import { PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
-import React, { useEffect, useState } from "react";
+import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid';
+import React, { useEffect, useState } from 'react';
 
 //Passing onCancel as a prop to NewPost component to handle the cancel button click event.
 export default function NewPost({ onCancel, onAddPost, post }) {
-  const [userName, setUserName] = useState(post?.userName || "");
-  const [content, setContent] = useState(post?.content || "");
-  const [title, setTitle] = useState(post?.title || "");
-  const [date, setDate] = useState(post?.date || "");
-  const [fileUpload, setFileUpload] = useState(post?.fileUpload || "");
+  const [userName, setUserName] = useState(post?.userName || '');
+  const [content, setContent] = useState(post?.content || '');
+  const [title, setTitle] = useState(post?.title || '');
+  const [date, setDate] = useState(post?.date || '');
+  const [fileUpload, setFileUpload] = useState(post?.fileUpload || '');
 
   useEffect(() => {
     if (post) {
@@ -34,7 +34,7 @@ export default function NewPost({ onCancel, onAddPost, post }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     const newPost = { userName, content, title, date, fileUpload };
-    console.log("Post added/updates:", newPost);
+    console.log('Post added/updates:', newPost);
     onAddPost(newPost);
   };
 
@@ -51,13 +51,13 @@ export default function NewPost({ onCancel, onAddPost, post }) {
 
   return (
     <form
-      className="content-center max-w-3xl mx-auto mt-12 space-y-12"
+      className="w-full max-w-4xl mx-auto mt-12 space-y-12 px-4 sm:px-6 lg:px-8 flex flex-col"
       onSubmit={handleSubmit}
     >
       <div className="space-y-12 ">
         <div className="border-b border-gray-900/10 pb-12">
-          <h2 className="text-base/7 font-semibold text-lime-800 uppercase">
-            {post ? "Edit Blog Post" : "Create a New Blog Post"}
+          <h2 className="text-2xl font-semibold text-amber-600 uppercase">
+            {post ? 'Edit Blog Post' : 'Create a New Blog Post'}
           </h2>
 
           <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
@@ -144,7 +144,7 @@ export default function NewPost({ onCancel, onAddPost, post }) {
                   rows={6}
                   maxLength={2500}
                   className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-                  placeholder={"Enter Blog Post Here..."}
+                  placeholder={'Enter Blog Post Here...'}
                 />
               </div>
             </div>
@@ -203,7 +203,7 @@ export default function NewPost({ onCancel, onAddPost, post }) {
           className="inline-block rounded-sm bg-amber-500 px-5 py-3 text-sm font-bold text-white transition hover:bg-amber-600 focus:ring-3 focus:outline-hidden"
           type="submit"
         >
-          {post ? "Update Post" : "Add Post"}
+          {post ? 'Update Post' : 'Add Post'}
         </button>
       </div>
     </form>
