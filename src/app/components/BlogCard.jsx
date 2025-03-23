@@ -97,7 +97,7 @@ export default function BlogCard({ post, onDelete, onEdit }) {
         </div>
 
         {/* <div className="sm:flex sm:justify-center"> */}
-        <div className="flex justify-center">
+        <div className="flex justify-end">
           <button
             onClick={expandButton}
             className=" block bg-amber-700 px-6 py-3 mx-1.5 my-1.5 text-center text-xs font-bold uppercase text-white hover:bg-amber-800 transition  rounded-sm"
