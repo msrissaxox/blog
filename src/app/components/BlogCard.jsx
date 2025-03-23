@@ -85,7 +85,7 @@ export default function BlogCard({ post, onDelete, onEdit }) {
           <a href="#">
             <h3 className="font-bold uppercase text-gray-900">{post.title}</h3>
           </a>
-          <div className="border-s text-gray-500 font-light text-xs sm:border-l-transparent">
+          <div className="text-gray-500 font-light text-xs">
             {post.userName}
           </div>
 
