@@ -49,13 +49,13 @@ export default function BlogCard({ post, onDelete, onEdit }) {
   }
 
   return (
-<article className="flex flex-col sm:flex-row bg-white transition hover:shadow-xl mb-3 px-4 py-6 sm:px-6 sm:py-8">
+<article className="flex flex-col sm:flex-row bg-white transition hover:shadow-xl mb-3 px-6 py-6 sm:px-6 sm:py-8">
 {/* <div className="rotate-180 p-2 [writing-mode:_vertical-lr]"> */}
 <div className="p-2 sm:rotate-180 sm:[writing-mode:_vertical-lr]">
 
         <time
           dateTime={post.date || ""}
-          className="flex items-center justify-between gap-4 text-xs font-bold uppercase text-gray-900"
+          className="flex items-center justify-between gap-4 text-xs font-bold uppercase text-amber-600"
         >
           <span>
             {post.date
@@ -83,9 +83,9 @@ export default function BlogCard({ post, onDelete, onEdit }) {
       <div className="flex flex-1 flex-col justify-between">
         <div className="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
           <a href="#">
-            <h3 className="font-bold uppercase text-gray-900">{post.title}</h3>
+            <h3 className="font-bold uppercase text-amber-600">{post.title}</h3>
           </a>
-          <div className="text-gray-500 font-light text-xs">
+          <div className="text-black font-light text-xs">
             {post.userName}
           </div>
 
@@ -96,24 +96,25 @@ export default function BlogCard({ post, onDelete, onEdit }) {
           </p>
         </div>
 
-        <div className="sm:flex sm:items-end sm:justify-end">
+        {/* <div className="sm:flex sm:justify-center"> */}
+        <div className="flex justify-center">
           <button
             onClick={expandButton}
-            className=" block bg-lime-300 px-6 py-3 mx-1.5 my-1.5 text-center text-xs font-bold uppercase text-lime-800 hover:bg-lime-400 transition  rounded-sm"
+            className=" block bg-amber-700 px-6 py-3 mx-1.5 my-1.5 text-center text-xs font-bold uppercase text-white hover:bg-amber-800 transition  rounded-sm"
           >
             {isExpanded ? "Read Less" : "Expand"}
           </button>
 
           <button
             onClick={deleteButton}
-            className="block bg-red-600 px-6 py-3 mx-1.5 my-1.5 text-center text-xs font-bold uppercase text-white transition hover:bg-red-700 rounded-sm"
+            className="block bg-red-800 px-6 py-3 mx-1.5 my-1.5 text-center text-xs font-bold uppercase text-white transition hover:bg-red-900 rounded-sm"
           >
             Delete
           </button>
 
           <button
             onClick={editButton}
-            className="block bg-yellow-300 px-6 py-3 mx-1.5 my-1.5 text-center text-xs font-bold uppercase text-lime-800 transition hover:bg-yellow-500 rounded-sm"
+            className="block bg-amber-500 px-6 py-3 mx-1.5 my-1.5 text-center text-xs font-bold uppercase text-white transition hover:bg-amber-600 rounded-sm"
           >
             Edit
           </button>

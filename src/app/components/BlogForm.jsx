@@ -8,6 +8,7 @@ import NewPost from './New-Post';
 import BlogCard from './BlogCard';
 import Modal from './Modal';
 
+
 export default function BlogForm() {
   //showNewPost is initialized with a false value because the NewPost form is not shown initially.
   const [showNewPost, setShowNewPost] = useState(false);
@@ -83,19 +84,22 @@ export default function BlogForm() {
   };
 
 
-  
+
   return (
     <>
       {cancelPost}
       <header className="bg-white">
-        <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+        <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8"
+        style={{ backgroundImage:"url('/blog.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }} >
+        
+
           <div className="flex flex-col items-start gap-4 md:flex-row md:items-center md:justify-between">
             <div>
-              <h1 className="text-2xl font-bold text-lime-800 sm:text-3xl">
+              <h1 className="text-4xl font-bold text-amber-950 sm:text-5xl">
                 BackBook Blog Posts
               </h1>
 
-              <p className="mt-1.5 text-sm text-lime-800">
+              <p className="mt-1.5 text-2xl font-bold text-amber-900">
                 Where all of your blog posts live.
               </p>
             </div>
@@ -103,7 +107,7 @@ export default function BlogForm() {
             <div className="flex items-center gap-4">
               <button
                 onClick={handleCreatePost}
-                className="inline-block rounded-sm bg-lime-300 px-5 py-3 text-xs font-bold uppercase text-lime-800 transition hover:bg-lime-400 focus:ring-3 focus:outline-hidden"
+                className="inline-block rounded-sm bg-amber-500 px-5 py-3 text-xs font-bold uppercase text-white transition hover:bg-amber-600 focus:ring-3 focus:outline-hidden"
                 type="button"
               >
                 Create New Post

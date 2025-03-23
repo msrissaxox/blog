@@ -167,7 +167,7 @@ export default function NewPost({ onCancel, onAddPost, post }) {
                   <div className="mt-4 flex text-sm/6 text-gray-600">
                     <label
                       htmlFor="file-upload"
-                      className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 focus-within:outline-hidden hover:text-indigo-500"
+                      className="relative cursor-pointer rounded-md bg-white font-semibold text-amber-600 focus-within:ring-2 focus-within:ring-amber-700 focus-within:ring-offset-2 focus-within:outline-hidden hover:text-amber-700"
                     >
                       <span>Upload a file</span>
                       <input
@@ -195,12 +195,12 @@ export default function NewPost({ onCancel, onAddPost, post }) {
         <button
           onClick={onCancel}
           type="button"
-          className="text-sm/6 font-semibold text-lime-800 uppercase"
+          className="text-sm/6 font-semibold text-amber-600 uppercase"
         >
           Cancel
         </button>
         <button
-          className="inline-block rounded-sm bg-indigo-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:ring-3 focus:outline-hidden"
+          className="inline-block rounded-sm bg-amber-500 px-5 py-3 text-sm font-bold text-white transition hover:bg-amber-600 focus:ring-3 focus:outline-hidden"
           type="submit"
         >
           {post ? "Update Post" : "Add Post"}
