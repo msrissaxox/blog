@@ -51,7 +51,7 @@ export default function BlogForm() {
   // It also sets the state of showNewPost to false to hide the NewPost form component.
 
   const handleAddPost = (post) => {
-    setPosts([...posts, post]);
+    setPosts([post, ...posts]);
     setShowNewPost(false);
   };
 
