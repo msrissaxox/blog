@@ -1,13 +1,12 @@
-//This is the parent component that contains the actual blog post along with the blog card components.
-//The BlogForm component manages the state of the blog posts and handles the creation, deletion, and editing of posts.
-//This component contains the logic for showing and hiding the NewPost form component, as well as the Modal component for confirming post deletion.
+//This is the parent component that manages the state of the blog posts and handles the creation, deletion, and editing of posts.
+//It contains the logic for showing and hiding the NewPost form component, as well as the Modal component for confirming post deletion.
+//The BlogForm component uses the useState hook to manage the state of the showNewPost, cancelPost, showModal, postToDelete, postToEdit, and posts variables.
 
 'use client';
 import React, { useState } from 'react';
 import NewPost from './New-Post';
 import BlogCard from './BlogCard';
 import Modal from './Modal';
-
 
 export default function BlogForm() {
   //showNewPost is initialized with a false value because the NewPost form is not shown initially.
@@ -20,7 +19,8 @@ export default function BlogForm() {
   const [postToDelete, setPostToDelete] = useState(null);
   //postToEdit is initialized with a null value because no post is selected for editing initially.
   const [postToEdit, setPostToEdit] = useState(null);
-  //posts array is initialized with a default post object.
+  //posts array is initialized with a default post object.  
+
   const [posts, setPosts] = useState([
     {
       userName: 'Default User',
@@ -87,7 +87,12 @@ export default function BlogForm() {
     setShowNewPost(false);
   };
 
-
+  // //function to expand the content of the post
+  // function expandButton() {
+  //   console.log('Expand button clicked');
+  //   //sets the state of isExpanded to the opposite of what it currently is
+  //   setIsExpanded(!isExpanded);
+  // }
 
   return (
     <>
@@ -130,7 +135,20 @@ It is given the value of the handleCancelPost function */
 // If postToEdit is not null, the post object at that index is passed to the NewPost component for editing.
 // If postToEdit is null, the NewPost component is used to create a new post.
       }
-  
+
+{/*The handleAddPost takes an argument, post. It then sets the setPosts 
+variable to that post, followed by the other posts. Then, it turns 
+setShowNewPost, which would be the form, to false.  */}    
+{/*   
+  const handleAddPost = (post) => {
+    setPosts([post, ...posts]);
+    setShowNewPost(false);
+  }; */
+/*The below code is checking is showNewPost is true. If so, it will pass 
+these variables to the component NewPost. NewPost is the form component.   */}
+      
+      
+      
       {showNewPost && (
         <NewPost
           onCancel={handleCancelPost}
