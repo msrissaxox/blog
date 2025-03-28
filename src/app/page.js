@@ -1,5 +1,6 @@
+// homepage
 import React from "react";
-import Index from "./pages/index";
+import Index from "../../index";
 
 export default function Home() {
   return (

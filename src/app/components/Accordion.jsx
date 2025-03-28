@@ -1,7 +1,7 @@
 'use client';
 import React, {useState} from "react";
 import SingleAccordion from "./SingleAccordion";
- 
+import Link from "next/link";
 export default function AccordionCustomIcon() {
     //open value is originally set to 0
 
@@ -10,12 +10,19 @@ export default function AccordionCustomIcon() {
     //It sets the open state to the index of the accordion that was clicked
 //If the accordion is already open, it sets the open state to 0 to close the accordion
   const handleOpen = (value) => setOpen(open === value ? null : value);
+  
   const accordionData = [
     {
       id: 1,
       title: "What is BackBook Blog Posts?",
       content:
-        "BackBook Blog Posts allows you to create, edit, and delete blog posts. You can also view all of your blog posts in one place.",
+      <>
+        "BackBook Blog Posts allows you to create, edit, and delete blog posts. You can also view all of your blog posts in one place. Learn more 
+        {" "}
+        <Link className="text-amber-600 hover:text-amber-800" href="/about">
+            here.
+        </Link>{" "}
+        </>
     },
     {
       id: 2,
@@ -26,8 +33,15 @@ export default function AccordionCustomIcon() {
     {
       id: 3,
       title: "How can I contact the creators of BackBook Blog Posts?",
-      content:
-        "We would love to collaborate and grow with you. Please contact us to learn more!",
+      content: (
+        <>
+        "We would love to collaborate and grow with you. Please {" "}
+        <Link className="text-amber-600 hover:text-amber-800" href="/contact">
+            contact us 
+        </Link> {" "}
+         to learn more!
+         </>
+      ),
     },
   ];
 
@@ -46,3 +60,4 @@ export default function AccordionCustomIcon() {
     </div>
   );
 }
+
