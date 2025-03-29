@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 export default function NavBar() {
@@ -9,12 +10,13 @@ export default function NavBar() {
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
           <img
-            src="https://flowbite.com/docs/images/logo.svg"
-            className="h-8"
+          src='/blog2.jpg'
+          
+            className="h-18"
             alt="Flowbite Logo"
           />
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-            Flowbite
+            BackBook Blog
           </span>
         </a>
         <button
@@ -44,31 +46,40 @@ export default function NavBar() {
         <div className="hidden w-full md:block md:w-auto" id="navbar-default">
           <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
             <li>
-              <a
-                href="#"
+
+
+             {' '}
+             <Link href="/"
                 className="block py-2 px-3 text-white bg-amber-700 rounded-sm md:bg-transparent md:text-amber-700 md:p-0 dark:text-white md:dark:text-amber-500"
                 aria-current="page"
               >
                 Home
-              </a>
+              </Link>
+              {' '}
             </li>
+
+
             <li>
-              <a
-                href="#"
+              {' '}
+              <Link href="/about"
                 className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-amber-700 md:p-0 dark:text-white md:dark:hover:text-amber-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
               >
+                
                 About
-              </a>
+                </Link>
+                {' '}
             </li>
 
             <li>
-              <a
-                href="#"
+            {' '}
+            <Link href="/contact"
                 className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-amber-700 md:p-0 dark:text-white md:dark:hover:text-amber-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-              >
+                >
                 Contact
-              </a>
+             </Link>
+             {' '}  
             </li>
+
           </ul>
         </div>
       </div>

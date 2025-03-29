@@ -2,6 +2,7 @@ import React from 'react';
 import ContactHeader from '../components/ContactHeader';
 import ContactBody from '../components/ContactBody';
 import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
 
 export default function Contact() {
   return (
@@ -9,6 +10,7 @@ export default function Contact() {
       <NavBar />
       <ContactHeader />
       <ContactBody />
+      <Footer />
     </div>
   );
 }
