@@ -19,7 +19,7 @@ export default function BlogForm() {
   const [postToDelete, setPostToDelete] = useState(null);
   //postToEdit is initialized with a null value because no post is selected for editing initially.
   const [postToEdit, setPostToEdit] = useState(null);
-  //posts array is initialized with a default post object.  
+  //posts array is initialized with a default post object.
 
   const [posts, setPosts] = useState([
     {
@@ -74,11 +74,11 @@ export default function BlogForm() {
     setShowNewPost(true);
     window.scrollTo({
       top: 0,
-      behavior: "smooth", // Smooth scrolling effect
+      behavior: 'smooth', // Smooth scrolling effect
     });
   };
-//handleUpdatePost function takes an updated post object as an argument and updates the post at the index of postToEdit in the posts array.
-//It sets the state of postToEdit to null and showNewPost to false to hide the NewPost form component.
+  //handleUpdatePost function takes an updated post object as an argument and updates the post at the index of postToEdit in the posts array.
+  //It sets the state of postToEdit to null and showNewPost to false to hide the NewPost form component.
   const handleUpdatePost = (updatedPost) => {
     setPosts(
       posts.map((post, index) => (index === postToEdit ? updatedPost : post))
@@ -98,10 +98,14 @@ export default function BlogForm() {
     <>
       {cancelPost}
       <header className="bg-white">
-        <div className="px-4 py-8 sm:px-6 sm:py-12 lg:px-8"
-        style={{ backgroundImage:"url('/blog.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }} >
-        
-
+        <div
+          className="px-4 py-8 sm:px-6 sm:py-12 lg:px-8"
+          style={{
+            backgroundImage: "url('/blog.jpg')",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        >
           <div className="flex flex-col items-start gap-4 md:flex-row md:items-center md:justify-between">
             <div>
               <h1 className="text-4xl font-bold text-amber-950 sm:text-5xl">
@@ -126,29 +130,28 @@ export default function BlogForm() {
         </div>
         <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-200"></hr>
       </header>
-      {/* onCancel is passed as a prop to NewPost component to handle the cancel button click event.
+      {
+        /* onCancel is passed as a prop to NewPost component to handle the cancel button click event.
 It is given the value of the handleCancelPost function */
-// onAddPost is passed as a prop to NewPost component to handle the add post event.
-// It is given the value of the handleAddPost function.
-// post is passed as a prop to NewPost component to handle the post object.
-// It is given the value of the post object at the index of postToEdit.
-// If postToEdit is not null, the post object at that index is passed to the NewPost component for editing.
-// If postToEdit is null, the NewPost component is used to create a new post.
+        // onAddPost is passed as a prop to NewPost component to handle the add post event.
+        // It is given the value of the handleAddPost function.
+        // post is passed as a prop to NewPost component to handle the post object.
+        // It is given the value of the post object at the index of postToEdit.
+        // If postToEdit is not null, the post object at that index is passed to the NewPost component for editing.
+        // If postToEdit is null, the NewPost component is used to create a new post.
       }
 
-{/*The handleAddPost takes an argument, post. It then sets the setPosts 
+      {/*The handleAddPost takes an argument, post. It then sets the setPosts 
 variable to that post, followed by the other posts. Then, it turns 
-setShowNewPost, which would be the form, to false.  */}    
-{/*   
+setShowNewPost, which would be the form, to false.  */}
+      {/*   
   const handleAddPost = (post) => {
     setPosts([post, ...posts]);
     setShowNewPost(false);
   }; */
-/*The below code is checking is showNewPost is true. If so, it will pass 
+      /*The below code is checking is showNewPost is true. If so, it will pass 
 these variables to the component NewPost. NewPost is the form component.   */}
-      
-      
-      
+
       {showNewPost && (
         <NewPost
           onCancel={handleCancelPost}
@@ -158,7 +161,7 @@ these variables to the component NewPost. NewPost is the form component.   */}
           post={postToEdit !== null ? posts[postToEdit] : null}
         />
       )}
-      
+
       <div>
         {posts.map((post, index) => (
           <BlogCard

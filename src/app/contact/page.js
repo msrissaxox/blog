@@ -1,12 +1,14 @@
-import React from "react";
-import ContactHeader from "../components/ContactHeader";
+import React from 'react';
+import ContactHeader from '../components/ContactHeader';
+import ContactBody from '../components/ContactBody';
+import NavBar from '../components/NavBar';
+
 export default function Contact() {
-return (
-<div>
-<ContactHeader />
-<p>
-  We would love to collaborate and grow with you. Please contact us to learn more!  
-</p>
-</div>
-)
+  return (
+    <div>
+      <NavBar />
+      <ContactHeader />
+      <ContactBody />
+    </div>
+  );
 }

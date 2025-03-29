@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 //trying to make the pop up come up when the delete button is clicked
 

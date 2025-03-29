@@ -20,13 +20,12 @@ export default function NewPost({ onCancel, onAddPost, post }) {
   const [title, setTitle] = useState(post?.title || '');
   const [date, setDate] = useState(post?.date || '');
   const [fileUpload, setFileUpload] = useState(post?.fileUpload || '');
-//useEffect hook is used to update the form fields when the post object is passed as a prop.
-//The form fields are updated with the post object properties when the post object changes.
-//The post object is passed as a prop to the NewPost component from the BlogForm component.
-//The post object is used to populate the form fields when editing a post.
-//The form fields are populated with the post object properties if the post object is passed as a prop.
-//The form fields are updated when the user types in the input fields.
-
+  //useEffect hook is used to update the form fields when the post object is passed as a prop.
+  //The form fields are updated with the post object properties when the post object changes.
+  //The post object is passed as a prop to the NewPost component from the BlogForm component.
+  //The post object is used to populate the form fields when editing a post.
+  //The form fields are populated with the post object properties if the post object is passed as a prop.
+  //The form fields are updated when the user types in the input fields.
 
   useEffect(() => {
     if (post) {
@@ -41,14 +40,13 @@ export default function NewPost({ onCancel, onAddPost, post }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     const newPost = { userName, content, title, date, fileUpload };
-  
-    if (fileUpload){
+
+    if (fileUpload) {
       console.log('Post added/updates:', newPost);
       onAddPost(newPost);
       alert('Post added/updated successfully');
     } else {
       alert('Please upload a file');
-
     }
   };
 
