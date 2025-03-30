@@ -44,7 +44,7 @@ export default function SingleAccordion({
       </AccordionHeader>
 
       {open === id && (
-        <AccordionBody className="h-5 mt-5 mb-5">{content}</AccordionBody>
+        <AccordionBody className="h-10 mt-10 mb-5">{content}</AccordionBody>
       )}
     </Accordion>
   );
