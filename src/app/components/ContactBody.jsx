@@ -22,6 +22,7 @@ export default function ContactBody () {
         () => {
           console.log('SUCCESS!');
           //resets the form
+          handleSubmission();
           form.current.reset();
         },
         (error) => {
@@ -30,7 +31,10 @@ export default function ContactBody () {
       );
   };
 
- 
+function handleSubmission() {
+  console.log("i was submitted");
+  alert("Thank you for your message! We will get back to you soon.");
+} 
 
   return (
     <form ref={form} onSubmit={sendEmail} className="m-15 space-y-6">
@@ -75,6 +79,7 @@ export default function ContactBody () {
         
         <button
           type="submit"
+          
           className="w-full bg-amber-600 hover:bg-amber-700 text-white font-medium py-2 px-4 rounded-md transition duration-300 ease-in-out transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-opacity-50"
         >
           Send Message
