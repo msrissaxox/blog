@@ -1,3 +1,5 @@
+// This component is the single accordion component. It contains the title and content of the accordion.
+//
 'use client';
 import React from 'react';
 import {

@@ -1,3 +1,5 @@
+//This component contains the data for the accordion component. It maps over the data and renders the SingleAccordion component for each item in the data array.
+//The handleOpen function is used to toggle the open state of the accordion when the header is clicked.
 'use client';
 import React, { useState } from 'react';
 import SingleAccordion from './SingleAccordion';

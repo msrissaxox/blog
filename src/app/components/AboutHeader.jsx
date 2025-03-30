@@ -1,3 +1,7 @@
+// This component is used to display the header of the about page.
+// It is used in src/app/pages/About.jsx.
+// It is imported into the About component.
+// It is a simple component that displays a heading.
 import React from 'react';
 
 export default function AboutHeader() {

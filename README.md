@@ -9,6 +9,8 @@ A simple, interactive blog application built with Next.js and React that allows 
 - Delete blog posts with confirmation modal
 - Expandable post content for better readability
 - Responsive design for various screen sizes
+- Multi-page routing with Next.js (Home, About, Contact)
+- Contact form that sends inquiries directly to my email
 
 ## Project Structure
 
@@ -18,6 +20,14 @@ The application consists of several key components:
 - NewPost: Form component for creating and editing blog posts
 - BlogCard: Component for displaying individual blog posts with expand, edit, and delete functionality
 - Modal: Confirmation dialog for delete operations
+- About Header: Component for displaying the header of the about page.
+- About Body: Component for the body of the About page with a call to action to contact us.
+- Accordion: This component contains the data for the accordion component. It maps over the data and renders the SingleAccordion component for each item in the data array.
+- Single Accordion: This component contains the title and content of the accordion.
+- Photo Icon: This component contains the photo that is rendered in the About and Contact pages
+- Contact Header: Component for displaying the header of the contact page
+- Contact Body: Component for displaying the body of the contact page. This contains the form that uses EmailJS to send all data from the form to my personal email. 
+- Nav Bar: Component that displays the nav bar on the Contact and About pages. 
 - Footer: Simple footer component displaying copyright information
 
 ## Technologies Used
@@ -27,7 +37,7 @@ The application consists of several key components:
 - React Hooks (useState, useEffect) - For state management
 - TailwindCSS - For styling components
 - JavaScript - Programming language
-
+- EmailJS - For sending contact form submissions to my email
 ## Getting Started
 
 Clone the Repository
@@ -55,6 +65,13 @@ npm run dev
 Open your browser and navigate to http://localhost:3000
 
 ## Project Walkthrough
+Page Routing
+This application uses Next.js routing to navigate between pages:
+
+- Home (/) - Main blog post listing and management
+- About (/about) - Information about the blog-author
+- Contact (/contact) - Contact formm for user inquiries
+- not-found.jsx - File in React to handle 404 errors when a user tries to access a route that does not exist. 
 
 BlogForm Component
 This is the main parent component that:
