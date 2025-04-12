@@ -68,9 +68,9 @@ export default function NewPost({ onCancel, onAddPost, post }) {
     >
       <div className="space-y-12 ">
         <div className="border-b border-gray-900/10 pb-12">
-          <h2 className="text-2xl font-semibold text-amber-600 uppercase">
+          <h1 className="text-2xl font-semibold text-amber-600 uppercase">
             {post ? 'Edit Blog Post' : 'Create a New Blog Post'}
-          </h2>
+          </h1>
 
           <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
             {/* Username section */}

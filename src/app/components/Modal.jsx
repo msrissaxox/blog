@@ -18,9 +18,9 @@ export default function Modal({ show, onClose, onConfirm }) {
     <div className="fixed inset-0 bg-opacity-50 backdrop-blur-sm overflow-y-auto h-full w-full">
       <div className="relative top-40 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
         <div className="mt-3 text-center">
-          <h3 className="text-lg leading-6 font-medium text-lime-800">
+          <h1 className="text-lg leading-6 font-medium text-lime-800">
             Confirm Delete
-          </h3>
+          </h1>
           <div className="mt-2 px-7 py-3">
             <p className="text-sm text-gray-500">
               Are you sure you want to delete this post?
