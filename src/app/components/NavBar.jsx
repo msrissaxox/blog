@@ -1,27 +1,20 @@
 'use client';
 import Link from 'next/link';
-import { React, useState }  from 'react';
+import { React, useState } from 'react';
 
 export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-
   //function here
- function handleMenuToggle() {
-    console.log("i was clicked");
+  function handleMenuToggle() {
+    console.log('i was clicked');
     setIsMenuOpen(!isMenuOpen);
-  }  
-
+  }
 
   return (
-
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a
-          href="/"
-          className="flex items-center space-x-3 rtl:space-x-reverse"
-        >
- 
+        <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
             BackBook Blog
           </span>
@@ -52,46 +45,43 @@ export default function NavBar() {
           </svg>
         </button>
 
-
-        <div className={`${
+        <div
+          className={`${
             isMenuOpen ? 'block' : 'hidden'
-          } w-full md:block md:w-auto`} id="navbar-default">
+          } w-full md:block md:w-auto`}
+          id="navbar-default"
+        >
           <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
             <li>
-
-
-             {' '}
-             <Link href="/"
+              {' '}
+              <Link
+                href="/"
                 className="block py-2 px-3 text-white bg-amber-700 rounded-sm md:bg-transparent md:text-amber-700 md:p-0 dark:text-white md:dark:text-amber-500"
                 aria-current="page"
               >
                 Home
-              </Link>
-              {' '}
+              </Link>{' '}
             </li>
-
 
             <li>
               {' '}
-              <Link href="/about"
+              <Link
+                href="/about"
                 className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-amber-700 md:p-0 dark:text-white md:dark:hover:text-amber-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
               >
-                
                 About
-                </Link>
-                {' '}
+              </Link>{' '}
             </li>
 
             <li>
-            {' '}
-            <Link href="/contact"
+              {' '}
+              <Link
+                href="/contact"
                 className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-amber-700 md:p-0 dark:text-white md:dark:hover:text-amber-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                >
+              >
                 Contact
-             </Link>
-             {' '}  
+              </Link>{' '}
             </li>
-
           </ul>
         </div>
       </div>

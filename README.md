@@ -28,8 +28,8 @@ The application consists of several key components:
 - Single Accordion: This component contains the title and content of the accordion.
 - Photo Icon: This component contains the photo that is rendered in the About and Contact pages
 - Contact Header: Component for displaying the header of the contact page
-- Contact Body: Component for displaying the body of the contact page. This contains the form that uses EmailJS to send all data from the form to my personal email. 
-- Nav Bar: Component that displays the nav bar on the Contact and About pages. 
+- Contact Body: Component for displaying the body of the contact page. This contains the form that uses EmailJS to send all data from the form to my personal email.
+- Nav Bar: Component that displays the nav bar on the Contact and About pages.
 - Footer: Simple footer component displaying copyright information
 
 ## Technologies Used
@@ -40,6 +40,7 @@ The application consists of several key components:
 - TailwindCSS - For styling components
 - JavaScript - Programming language
 - EmailJS - For sending contact form submissions to my email
+
 ## Getting Started
 
 Clone the Repository
@@ -67,15 +68,18 @@ npm run dev
 Open your browser and navigate to http://localhost:3000
 
 ## Project Walkthrough
+
 ## Page Routing
+
 This application uses Next.js routing to navigate between pages:
 
 - Home (/) - Main blog post listing and management
 - About (/about) - Information about the blog-author
 - Contact (/contact) - Contact formm for user inquiries
-- not-found.jsx - File in React to handle 404 errors when a user tries to access a route that does not exist. 
+- not-found.jsx - File in React to handle 404 errors when a user tries to access a route that does not exist.
 
 ## BlogForm Component
+
 This is the main parent component that:
 
 - Manages the state of all blog posts
@@ -84,6 +88,7 @@ This is the main parent component that:
 - Passes data and callback functions to child components
 
 ## NewPost Component
+
 This component renders a form that:
 
 - Captures user input for blog posts (username, title, date, content, image)
@@ -92,6 +97,7 @@ This component renders a form that:
 - Supports image file uploads
 
 ## BlogCard Component
+
 This component displays a single blog post with:
 
 - Post title, author, date, and content
@@ -100,6 +106,7 @@ This component displays a single blog post with:
 - Responsive layout for different screen sizes
 
 ## Modal Component
+
 A reusable confirmation dialog that:
 
 - Appears when a user attempts to delete a post
@@ -107,6 +114,7 @@ A reusable confirmation dialog that:
 - Uses backdrop blur for a modern UI effect
 
 ## Contact Form Component
+
 This component provides a user inquiry form that:
 
 - Collects user name, email, and message
@@ -115,12 +123,14 @@ This component provides a user inquiry form that:
 - Provides feedback on successful submission
 
 ## About Body Component
+
 This component contains the main content of the About page:
 
 - Presents information about the blog, its purpose, and the author
 - Features a call-to-action directing visitors to the Contact page
 
 ## Accordion Component
+
 This component acts as a container for expandable content sections:
 
 - Maps through a data array to dynamically generate accordion items
@@ -130,6 +140,7 @@ This component acts as a container for expandable content sections:
 - Renders the SingleAccordion component for each item in the data array
 
 ## Single Accordion Component
+
 This component renders an individual expandable section within the Accordion:
 
 - Displays a clickable title bar that toggles content visibility
@@ -138,6 +149,7 @@ This component renders an individual expandable section within the Accordion:
 - Manages its own open/close state with smooth transitions
 
 ## Photo Icon Component
+
 This reusable component displays imagery across multiple pages:
 
 - Renders optimized images for the About and Contact pages
@@ -145,12 +157,14 @@ This reusable component displays imagery across multiple pages:
 - Implements responsive sizing based on viewport dimensions
 
 ## Contact Header Component
+
 This component introduces the Contact page:
 
 - Features a clear, inviting header that encourages communication
 - Sets expectations for the contact form below
 
 # Contact Body Component
+
 This component contains the primary functionality of the Contact page:
 
 - Houses the contact form with fields for name, email, and message
@@ -161,6 +175,7 @@ This component contains the primary functionality of the Contact page:
 - Features responsive design for optimal viewing on all devices
 
 ## Nav Bar Component
+
 This navigation component appears on the About and Contact pages:
 
 - Provides intuitive navigation between different sections of the application
