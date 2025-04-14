@@ -14,10 +14,30 @@
 
 'use client';
 import React, { useState } from 'react';
+import Image from 'next/image';
 
 // console.log("data", { userName, content, title, date, fileUpload });
 export default function BlogCard({ post, onDelete, onEdit }) {
   const [isExpanded, setIsExpanded] = useState(false);
+  // const base64Image = post.fileUpload ? `data:image/gif;base64,${post.fileUpload}` : '/javascript.jpg';
+  const base64Image = post?.fileUpload || '/javascript.jpg';
+  //this handles the file upload and sets the fileUpload state to the base64 encoded image string
+const handleImageUpload = (event) => {
+  const file = event.target.files[0];
+  const reader = new FileReader();
+
+  reader.onloadend = () => {
+    const dataURL = reader.result;
+    setPost((prevPost) => ({
+      ...prevPost,
+      fileUpload: dataURL,
+    }));
+    
+};
+if (file) {
+  reader.readAsDataURL(file);
+}
+};
 
   //function to expand the content of the post
   function expandButton() {
@@ -35,6 +55,8 @@ export default function BlogCard({ post, onDelete, onEdit }) {
     console.log('Edit button clicked');
     onEdit();
   }
+
+
 
   console.log('BlogCard post:', post);
   // Check if the post object is valid
@@ -67,14 +89,16 @@ export default function BlogCard({ post, onDelete, onEdit }) {
       </div>
       <div className="sm:block sm:basis-56">
         {/*Using img here because the file upload is in the base64 encoded image string rather than a file path*/}
-        <img
-          alt={post.title || 'Uploaded file'} 
-          src={post.fileUpload || '/.javascript.jpg'}
-          width={500}
-          height={500}
-          className="aspect-square h-56 w-full object-cover"
-          priority
-       />
+        {post && (
+          <Image
+  alt={post?.title || 'Uploaded file'} 
+  src={base64Image}
+  width={500}
+  height={500}
+  className="aspect-square h-56 w-full object-cover"
+  unoptimized
+/>
+)}
       </div>
 
       <div className="flex flex-1 flex-col justify-between">
