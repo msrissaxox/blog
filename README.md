@@ -1,5 +1,5 @@
 ## Live Project
-<a href ="https://main.diuc138417s4b.amplifyapp.com/"> BackBook Blog</a>
+<a href ="https://main.diuc138417s4b.amplifyapp.com/" target="_blank"> BackBook Blog</a>
 ## BackBook Blog
 
 I developed a full-featured blog application built with Next.js and React that delivers a seamless content management experience. This project demonstrates modern web development practices while providing intuitive user interactions.
