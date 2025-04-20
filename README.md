@@ -1,6 +1,5 @@
 ## Live Project
-<a href ="https://main.diuc138417s4b.amplifyapp.com/" target="_blank"> BackBook Blog</a>
-## BackBook Blog
+<a href="https://main.diuc138417s4b.amplifyapp.com/" target="_blank">BackBook Blog</a>## BackBook Blog
 
 I developed a full-featured blog application built with Next.js and React that delivers a seamless content management experience. This project demonstrates modern web development practices while providing intuitive user interactions.
 The platform features a robust post management system where users can create, edit, and delete blog posts with rich content including text and images. Each post displays with an elegant card interface that includes expandable content sections for improved readability.
