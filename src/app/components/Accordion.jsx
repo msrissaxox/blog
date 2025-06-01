@@ -19,7 +19,7 @@ export default function AccordionCustomIcon() {
       title: 'What is BackBook Blog Posts?',
       content: (
         <>
-          "BackBook Blog Posts allows you to create, edit, and delete blog
+          BackBook Blog Posts allows you to create, edit, and delete blog
           posts. You can also view all of your blog posts in one place. Learn
           more{' '}
           <Link className="text-amber-600 hover:text-amber-800" href="/about">
@@ -39,7 +39,7 @@ export default function AccordionCustomIcon() {
       title: 'How can I contact the creators of BackBook Blog Posts?',
       content: (
         <>
-          "We would love to collaborate and grow with you. Please{' '}
+          We would love to collaborate and grow with you. Please{' '}
           <Link className="text-amber-600 hover:text-amber-800" href="/contact">
             contact us
           </Link>{' '}
