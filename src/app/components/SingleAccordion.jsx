@@ -37,7 +37,7 @@ export default function SingleAccordion({
   return (
     <Accordion open={open === id} icon={<Icon id={id} open={open} />}>
       <AccordionHeader
-        className="text-amber-900"
+        className="text-amber-900 text-left font-semibold text-lg transition-colors duration-200"
         onClick={() => handleOpen(id)}
       >
         {title}
