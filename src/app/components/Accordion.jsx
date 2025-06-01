@@ -32,7 +32,7 @@ export default function AccordionCustomIcon() {
       id: 2,
       title: 'How to use BackBook Blog Posts?',
       content:
-        'Log in and create posts to share with the world! We are constantly growing and would love you to be a part of our journey!',
+        'Create posts to share with the world! We are constantly growing and would love you to be a part of our journey!',
     },
     {
       id: 3,
